@@ -1,8 +1,12 @@
 global:
   env:
     - LARAVEL_ENV: production
+    - LARAVEL_DRIVER: sqlite
+#db1:
+#  name: laravel-db
+#  type: mysql
 web1:
-  name: laravel-pagoda
+  name: laravel-bundles
   shared_writable_dirs:
     - /storage/cache
     - /storage/database
