@@ -40,4 +40,5 @@ return array(
 	'date' => array('auto' => true, 'autoloads' => array(
 			'map' => array('Date' => '(:bundle)/libraries/date.php')
 		)),	
+	'bootstrapper' => array('auto' => true),
 );
