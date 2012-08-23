@@ -1,10 +1,10 @@
 global:
   env:
     - LARAVEL_ENV: production
-    - LARAVEL_DRIVER: mysql
-db1:
-  name: laravel-db
-  type: mysql
+    - LARAVEL_DRIVER: sqlite
+#db1:
+#  name: laravel-db
+#  type: mysql
 web1:
   name: laravel-bundles
   shared_writable_dirs:

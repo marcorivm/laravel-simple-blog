@@ -43,7 +43,7 @@ return array(
 
 		'mysql' => array(
 			'driver'   => 'mysql',
-			'host'     => $_SERVER['DB1_HOST'].':'.$_SERVER["DB1_PORT"]),
+			'host'     => $_SERVER['DB1_HOST'].':'.$_SERVER["DB1_PORT"],
 			'database' => $_SERVER['DB1_NAME'],
 			'username' => $_SERVER['DB1_USER'],
 			'password' => $_SERVER['DB1_PASS'],
