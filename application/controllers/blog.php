@@ -10,9 +10,7 @@ class Blog_Controller extends Base_Controller {
 	public function action_view($blog_id)
 	{
 		$blog = Blog::find($blog_id)->with('posts');
-		$posts = $blog->posts()->paginate(5);
 		$this->view_opts['blog'] = $blog;
-		$this->view_opts['posts'] = $posts;
 		return View::make('blog.view', $this->view_opts);
 	}
 
