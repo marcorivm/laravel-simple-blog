@@ -16,7 +16,7 @@ class Blog_Controller extends Base_Controller {
 
 	public function action_list()
 	{
-		$this->view_opts['blogs'] = Blog::all()->paginate(5);
+		$this->view_opts['blogs'] = Blog::all();
 		return View::make('blog.list', $this->view_opts);
 	}
 

@@ -3,6 +3,11 @@
 class Base_Controller extends Controller {
 
 	protected $view_opts = array();
+	
+	public function __construct() 
+	{
+		parent::__construct();
+	}
 	/**
 	 * Catch-all method for requests that can't be matched.
 	 *
