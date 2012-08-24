@@ -2,39 +2,37 @@
 
 class Blog_Controller extends Base_Controller {
 
-	public function action_index()
-	{
-		// code here..
-
-		return View::make('blog.index');
-	}
-
 	public function action_create()
 	{
-		// code here..
-
-		return View::make('blog.create');
+		return View::make('blog.create.form', $this->view_opts);
 	}
 
-	public function action_view()
+	public function action_view($blog_id)
 	{
-		// code here..
-
-		return View::make('blog.view');
+		$blog = Blog::find($blog_id)->with('posts');
+		$posts = $blog->posts()->paginate(5);
+		$this->view_opts['blog'] = $blog;
+		$this->view_opts['posts'] = $posts;
+		return View::make('blog.view', $this->view_opts);
 	}
 
 	public function action_list()
 	{
-		// code here..
-
-		return View::make('blog.list');
+		$this->view_opts['blogs'] = Blog::all()->paginate(5);
+		return View::make('blog.list', $this->view_opts);
 	}
 
 	public function action_save()
 	{
-		// code here..
-
-		return View::make('blog.save');
+		if(Input::has('name')) {
+			$blog = new Blog();
+			$blog->name = Input::get('name');
+			$blog->save();
+			$this->view_opts['blog'] = $blog;
+		return View::make('blog.create.success', $this->view_opts);
+		} else {
+			Response::error('500');
+		}
 	}
 
 }

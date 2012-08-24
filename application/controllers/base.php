@@ -2,6 +2,7 @@
 
 class Base_Controller extends Controller {
 
+	protected $view_opts = array();
 	/**
 	 * Catch-all method for requests that can't be matched.
 	 *
