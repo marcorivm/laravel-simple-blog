@@ -12,12 +12,11 @@ class Create_Posts_Table {
 		Schema::create('posts', function($table)
 		{
 			$table->increments('id');
-			$table->integer('blog_id');
-			$table->foreign('blog_id')->references('id')->on('blogs');
+			$table->integer('blog_id')->index();
 			$table->text('content');
 			$table->string('title');
 			$table->string('tags');
-			$table->integer('status', 2);
+			$table->integer('status');
 			/**
 			* 0 - Draft
 			* 1 - Published
@@ -26,6 +25,12 @@ class Create_Posts_Table {
 			**/
 			$table->timestamps();
 		});
+		if(Config::get('database.connections.'.Config::get('database.default').'.driver') != 'sqlite') {
+			Schema::table('posts', function($table)
+			{
+				$table->foreign('blog_id')->references('id')->on('blogs');
+			});
+		}
 	}
 
 	/**
