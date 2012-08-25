@@ -1,5 +1,6 @@
 @layout('layouts/main')
 @section('main-content')
+<div class="row">{{ Session::has('new')? Alert::success('Congratulations, your blog has been created!') : '' }}</div>
 <div class="row">
 	<h1>Welcome to {{ $blog->name }}</h1>
 </div>
