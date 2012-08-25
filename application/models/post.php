@@ -8,5 +8,10 @@ class Post extends Eloquent {
 	{
 		return $this->has_many('Comment');
 	}
+	
+	public function blog()
+	{
+		return $this->belongs_to('Blog');
+	}
 
 }

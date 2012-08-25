@@ -7,7 +7,7 @@ class Post_Controller extends Base_Controller {
 		if(is_a($post,'post')) {
 			$this->view_opts['post'] = $post;
 			$this->view_opts['blog'] = $post->blog;
-			return View::make('post.view', this->view_opts);
+			return View::make('post.view', $this->view_opts);
 		} else {
 			return Response::error('404');
 		}
@@ -15,8 +15,10 @@ class Post_Controller extends Base_Controller {
 
 	public function action_create($blog_id)
 	{
-		if(is_a(Blog::find($blog_id), 'blog') {
-			return View::make('post.create.form', this->view_opts);
+		$blog = Blog::find($blog_id);
+		if(is_a($blog, 'blog')) {
+			$this->view_opts['blog'] = $blog;
+			return View::make('post.create', $this->view_opts);
 		} else {
 			return Response::error('404');
 		}
@@ -24,23 +26,25 @@ class Post_Controller extends Base_Controller {
 
 	public function action_save($blog_id)
 	{
-		$input = Input::get();
+		$input = Input::all();
 		$rules = array(
 			'title' => 'required|max:50',
 			'content' => 'required',
-			'tags' => 'required|match:/[a-z](,[a-z]){1,5}/',
+			'tags' => 'required',
 		);
-		if(is_a(Blog:find($blog_id), 'blog') {
+		if(is_a(Blog::find($blog_id), 'blog')) {
 			$validation = Validator::make($input, $rules);
 			if($validation->fails()){
-				return View::make('post.create.form', this->view_opts);
+				return Redirect::to_action('post@create', array($blog_id))->with_input()->with_errors($validation);
 			} else {
 				$post = new Post();
 					$post->title = $input['title'];
+					$post->blog_id = $blog_id;
 					$post->content = $input['content'];
 					$post->tags = $input['tags'];
+					$post->status = 1;
 				$post->save();
-				return View::make('post.create.success', this->view_opts);
+				return Redirect::to_action('post@view', array($blog_id, $post->id))->with('new', true);
 			}
 		} else {
 			return Response::error('404');
