@@ -8,7 +8,7 @@ class Comment_Controller extends Base_Controller {
 		$rules = array(
 			'commenter' => 'required|max:50',
 			'commenter_email' => 'required|email',
-			'content' => 'required|max:300',
+			'content' => 'required|max:1000',
 		);
 		if(is_a(Post::find($post_id), 'post')) {
 			$validation = Validator::make($input, $rules);
