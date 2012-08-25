@@ -33,7 +33,6 @@ class Blog_Controller extends Base_Controller {
 			$blog = new Blog();
 			$blog->name = $input['name'];
 			$blog->save();
-			$this->view_opts['blog'] = $blog;
 			return Redirect::to_action('blog@view', array($blog->id))->with('new',true);
 		}
 	}
