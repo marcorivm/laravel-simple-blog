@@ -21,7 +21,7 @@ class Comment_Controller extends Base_Controller {
 					$comment->content = $input['content'];
 					$comment->post_id = $post_id;
 				$comment->save();
-				return Redirect::to_action('post@view', array($blog_id, $post_id))->with('new', true);
+				return Redirect::to_action('post@view', array($blog_id, $post_id))->with('new-comment', true);
 			}
 		} else {
 			return Response::error('404');

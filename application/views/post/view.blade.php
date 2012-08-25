@@ -1,5 +1,6 @@
 @layout('layouts/main')
 @section('main-content')
+<div class="row">{{ Session::has('new')? Alert::success('Congratulations, your post has been created!') : '' }}</div>
 <div class="row">
 	<h1>{{ $blog->name }}</h1>
 	<h2>{{ $post->title }} </h2>
@@ -15,6 +16,7 @@
 	<h4>Comentarios</h4>
 	<hr />
 </div>
+<div class="row">{{ Session::has('new-comment')? Alert::success('Congratulations, your comment has been posted!') : '' }}</div>
 <div class="row">
 	@forelse($post->comments()->order_by('created_at', 'asc')->get() as $comment)
 		<div>
