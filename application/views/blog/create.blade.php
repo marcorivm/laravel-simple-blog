@@ -1,6 +1,9 @@
 @layout('layouts/main')
 @section('main-content')
 <div class="row">
+	<h1>Add a new blog</h1>
+</div>
+<div class="row">
 	{{ Form::horizontal_open() }}
 		<?
 			echo Form::control_group(

@@ -4,7 +4,7 @@ class Blog_Controller extends Base_Controller {
 
 	public function action_create()
 	{
-		return View::make('blog.create.form', $this->view_opts);
+		return View::make('blog.create', $this->view_opts);
 	}
 
 	public function action_view($blog_id)
