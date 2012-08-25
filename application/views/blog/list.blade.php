@@ -1,6 +1,6 @@
 @layout('layouts/main')
 @section('main-content')
-<div class="row">{{ Buttons::large_success_link('Create a new blog!', '/create') }}</div>
+<div class="row">{{ Buttons::large_success_link('Create a new blog!', URL::to_action('blog@create')) }}</div>
 <div class="row">
 	<hr />
 </div>
