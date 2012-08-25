@@ -40,13 +40,12 @@ return array(
 			'database' => 'application',
 			'prefix'   => '',
 		),
-
 		'mysql' => array(
 			'driver'   => 'mysql',
-			'host'     => $_SERVER['DB1_HOST'].':'.$_SERVER["DB1_PORT"],
-			'database' => $_SERVER['DB1_NAME'],
-			'username' => $_SERVER['DB1_USER'],
-			'password' => $_SERVER['DB1_PASS'],
+			'host'     => (($_SERVER['LARAVEL_DRIVER'] == 'mysql')? $_SERVER['DB1_HOST'].':'.$_SERVER["DB1_PORT"] : ''),
+			'database' => (($_SERVER['LARAVEL_DRIVER'] == 'mysql')? $_SERVER['DB1_NAME'] : ''),
+			'username' => (($_SERVER['LARAVEL_DRIVER'] == 'mysql')? $_SERVER['DB1_USER'] : ''),
+			'password' => (($_SERVER['LARAVEL_DRIVER'] == 'mysql')? $_SERVER['DB1_PASS'] : ''),
 			'charset'  => 'utf8',
 			'prefix'   => '',
 		),
