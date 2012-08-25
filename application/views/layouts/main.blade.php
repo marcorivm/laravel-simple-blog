@@ -14,13 +14,13 @@
   <body>
 
     <!-- nav-bar -->
-	<? echo Navbar::create('Simple Blog', '', 
+	<? echo Navbar::create('Simple Blog', URL::to_action('blog@list'), 
 		array(
 			array(
 				'attribute' => array(),
 				'items' => array(
-					array('label' => 'Home', 'url' => '/'),
-					array('label' => 'New blog', 'url' => '/create')
+					array('label' => 'Home', 'url' => URL::to_action('blog@list')),
+					array('label' => 'New blog', 'url' => URL::to_action('blog@create'))
 				)
 			)
 		),
