@@ -1,3 +1,16 @@
-<h1>blog.list</h1>
-
-<p>This view has been auto-generated to accompany the Blog_Controller's action_list()</p>
+@layout('layouts/main')
+@section('main-content')
+<div class="row">{{ Buttons::large_success_link('Create a new blog!', '/create') }}</div>
+<div class="row">
+	<hr />
+</div>
+<div class="row">
+	@forelse($blogs as $blog)
+		<div class="span5 well">
+			<h1><a href="/{{ $blog->id }}">{{ $blog->name }}</a></h1>
+		</div>
+	@empty
+	 {{ Alert::error('There are no blogs', false) }}
+	@endforelse
+</div>
+@endsection

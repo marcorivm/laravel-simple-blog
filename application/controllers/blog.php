@@ -22,14 +22,19 @@ class Blog_Controller extends Base_Controller {
 
 	public function action_save()
 	{
-		if(Input::has('name')) {
+		$input = Input::all();
+		$rules = array(
+				'name' => 'required|max:50'
+		);
+		$validation = Validator::make($input, $rules);
+		if($validation->fails()) {
+			return Redirect::to('blog@create')->with_errors($validation);
+		} else {
 			$blog = new Blog();
-			$blog->name = Input::get('name');
+			$blog->name = $input['name'];
 			$blog->save();
 			$this->view_opts['blog'] = $blog;
-		return View::make('blog.create.success', $this->view_opts);
-		} else {
-			Response::error('500');
+			return Redirect::to_action('blog@view', array($blog->id))->with('new',true);
 		}
 	}
 
