@@ -24,7 +24,8 @@ class Blog_Controller extends Base_Controller {
 	{
 		$input = Input::all();
 		$rules = array(
-				'name' => 'required|max:50'
+				'name' => 'required|max:50',
+				'recaptcha_response_field' => 'recaptcha:RECAPTCHA_PRIVATE_KEY'
 		);
 		$validation = Validator::make($input, $rules);
 		if($validation->fails()) {
