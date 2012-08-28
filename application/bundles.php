@@ -42,4 +42,5 @@ return array(
 		)),	
 	'bootstrapper' => array('auto' => true),
 	'recaptcha' => array('auto' => true),
+	'laracaptcha' => array('auto' => true, 'handles' => 'captcha'),
 );

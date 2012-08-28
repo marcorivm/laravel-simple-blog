@@ -31,6 +31,7 @@ class Post_Controller extends Base_Controller {
 			'title' => 'required|max:50',
 			'content' => 'required',
 			'tags' => 'required',
+			'captchatest' => 'laracaptcha|required',
 		);
 		if(is_a(Blog::find($blog_id), 'blog')) {
 			$validation = Validator::make($input, $rules);

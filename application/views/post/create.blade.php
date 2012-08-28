@@ -30,6 +30,11 @@
 				);
 		?>
 		<?
+			echo Form::control_group(
+				Form::image(LaraCaptcha\Captcha::img(), 'captcha', array('class' => 'captchaimg')),
+				Form::text('captchatest', '', array('class' => 'captchainput', 'placeholder' => 'Insert captcha...')));
+		?>
+		<?
 			echo Form::actions(
 				array(
 					Buttons::primary_submit('Create post'),
@@ -37,6 +42,7 @@
 				)
 			);
 		?>
+
 	{{ Form::close() }}
 </div>
 @endsection
