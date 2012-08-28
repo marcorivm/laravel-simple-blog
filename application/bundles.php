@@ -41,4 +41,5 @@ return array(
 			'map' => array('Date' => '(:bundle)/libraries/date.php')
 		)),	
 	'bootstrapper' => array('auto' => true),
+	'recaptcha' => array('auto' => true),
 );
