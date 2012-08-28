@@ -25,11 +25,11 @@ class Blog_Controller extends Base_Controller {
 		$input = Input::all();
 		$rules = array(
 				'name' => 'required|max:50',
-				'recaptcha_response_field' => 'recaptcha:RECAPTCHA_PRIVATE_KEY'
+				'captchatest' => 'laracaptcha|required',
 		);
 		$validation = Validator::make($input, $rules);
 		if($validation->fails()) {
-			return Redirect::to('blog@create')->with_errors($validation);
+			return Redirect::to_action('blog@create')->with_input()->with_errors($validation);
 		} else {
 			$blog = new Blog();
 			$blog->name = $input['name'];

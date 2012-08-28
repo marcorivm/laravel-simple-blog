@@ -9,6 +9,7 @@ class Comment_Controller extends Base_Controller {
 			'commenter' => 'required|max:50',
 			'commenter_email' => 'required|email',
 			'content' => 'required|max:1000',
+			'captchatest' => 'laracaptcha|required',
 		);
 		if(is_a(Post::find($post_id), 'post')) {
 			$validation = Validator::make($input, $rules);

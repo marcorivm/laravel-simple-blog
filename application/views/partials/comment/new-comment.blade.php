@@ -24,6 +24,14 @@
 				);
 		?>
 		<?
+			echo Form::control_group(
+				Form::image(LaraCaptcha\Captcha::img(), 'captcha', array('class' => 'captchaimg')),
+				Form::text('captchatest', '', array('class' => 'captchainput', 'placeholder' => 'Insert captcha...')),
+				(($errors->has('captchatest'))? 'error' : ((Input::old('captchatest'))? 'success' : '')),
+				(($errors->has('captchatest'))? Form::inline_help($errors->first('captchatest')) : '')
+				);
+		?>
+		<?
 			echo Form::actions(
 				array(
 					Buttons::primary_submit('Post comment'),
