@@ -7,7 +7,7 @@ return array(
 	'allowed_symbols'		=> '23456789abcdeghkmnpqsuvxyz',
 
 	// Folder with fonts
-	'fonts_dir'				=> __DIR__.DS.'..'.DS.'fonts'.DS,
+	'fonts_dir'				=> Bundle::path('laracaptcha').'fonts'.DS,
 
 	// Captcha string length
 	'length'				=> mt_rand(5,6),
