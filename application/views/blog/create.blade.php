@@ -8,7 +8,7 @@
 		<?
 			echo Form::control_group(
 				Form::label('name', 'Blog name:'), 
-				Form::text('name', null, array('placeholder' => 'Awesome name')),
+				Form::text('name', Input::old('name'), array('placeholder' => 'Awesome name')),
 				(($errors->has('name'))? 'error' : ((Input::old('name'))? 'success' : '')),
 				(($errors->has('name'))? Form::inline_help($errors->first('name')) : '')
 				);
