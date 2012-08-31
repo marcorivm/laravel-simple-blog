@@ -58,6 +58,15 @@ Route::post('(:num)/new', 'post@save');
 /**/
 Route::any('(:num)/(:num)/comment', 'comment@save');
 
+
+/**
+|--------------------------------------------------------------------------
+| Rutas contact
+|--------------------------------------------------------------------------
+/**/
+Route::get('contact', 'contact@index');
+Route::post('contact', 'contact@create');
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
@@ -130,3 +139,9 @@ Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::to('login');
 });
+
+// Route for Contact_Controller
+Route::controller('contact');
+
+// Route for Prueba_Controller
+Route::controller('prueba');
