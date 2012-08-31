@@ -18,7 +18,7 @@
 </div>
 <div class="row">{{ Session::has('new-comment')? Alert::success('Congratulations, your comment has been posted!') : '' }}</div>
 <div class="row">
-	@forelse($post->comments()->order_by('created_at', 'asc')->get() as $comment)
+	@forelse($comments->results as $comment)
 		<div>
 			@include('partials.comment.single-comment')
 		</div>
@@ -26,6 +26,8 @@
 		{{ Alert::info('There are no comments in this post', false) }}
 		<hr class="span12" />
 	@endforelse
+    
+    {{ $comments->links(3, Paginator::ALIGN_RIGHT) }}
 	<div class="span12">@include('partials.comment.new-comment')</div>
 </div>
 @endsection
