@@ -7,7 +7,7 @@
 <div class="row">
 	@forelse($blogs as $blog)
 		<div class="span5 well">
-			<h1><a href="/{{ $blog->id }}">{{ $blog->name }}</a></h1>
+			<h1><a href="{{ URL::to_action('blog@view', array($blog->id)) }}">{{ $blog->name }}</a></h1>
 		</div>
 	@empty
 	 {{ Alert::error('There are no blogs', false) }}
