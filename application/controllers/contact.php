@@ -31,8 +31,6 @@ class Contact_Controller extends Base_Controller {
 			//enviar mail
 			return Redirect::to_action('contact@thank');
 		}
-
-		return View::make('contact.create');
 	}
 
 }
