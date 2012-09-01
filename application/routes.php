@@ -139,9 +139,3 @@ Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::to('login');
 });
-
-// Route for Contact_Controller
-Route::controller('contact');
-
-// Route for Prueba_Controller
-Route::controller('prueba');
