@@ -7,6 +7,7 @@ class Post_Controller extends Base_Controller {
 		if(is_a($post,'post')) {
 			$this->view_opts['post'] = $post;
 			$this->view_opts['blog'] = $post->blog;
+            $this->view_opts['comments'] = $post->comments()->order_by('created_at', 'asc')->paginate(5);
 			return View::make('post.view', $this->view_opts);
 		} else {
 			return Response::error('404');

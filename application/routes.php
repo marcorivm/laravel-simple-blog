@@ -59,6 +59,15 @@ Route::post('(:num)/new', 'post@save');
 /**/
 Route::any('(:num)/(:num)/comment', 'comment@save');
 
+
+/**
+|--------------------------------------------------------------------------
+| Rutas contact
+|--------------------------------------------------------------------------
+/**/
+Route::get('contact', 'contact@index');
+Route::post('contact', 'contact@create');
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
