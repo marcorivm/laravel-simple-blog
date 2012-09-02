@@ -1,6 +1,6 @@
 <?php
 
-class Blog_Controller extends Base_Controller {
+class Blog_Controller extends Base_Controller  {
 
 	public function action_create()
 	{
@@ -36,6 +36,16 @@ class Blog_Controller extends Base_Controller {
 			$blog->save();
 			return Redirect::to_action('blog@view', array($blog->id))->with('new',true);
 		}
+	}
+    public function action_search()
+	{
+       $search = Input::get('search');
+		//$blog = Blog::find(1)->with('posts');
+		//$this->view_opts['blog'] = $blog;
+        $this->view_opts['blogs'] = Blog::all();
+		return View::make('blog.search', $this->view_opts)->with('search', $search);
+        
+
 	}
 
 }

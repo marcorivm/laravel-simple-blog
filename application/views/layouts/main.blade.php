@@ -13,21 +13,30 @@
 
   <body>
 
-    <!-- nav-bar -->
-	<? echo Navbar::create('Simple Blog', URL::to_action('blog@list'), 
-		array(
-			array(
-				'attribute' => array(),
-				'items' => array(
-					array('label' => 'Home', 'url' => URL::to_action('blog@list')),
-					array('label' => 'New blog', 'url' => URL::to_action('blog@create'))
-				)
-			)
-		),
-		Navbar::FIX_TOP,
-		true
-		);
-	?>
+<!-- nav-bar -->
+<? echo Navbar::create('Simple Blog', URL::to_action('blog@list'),
+                       array(
+                             array(
+                                   'attribute' => array(),
+                                   'items' => array(
+                                                    array('label' => 'Home', 'url' => URL::to_action('blog@list')),
+                                                    array('label' => 'New blog', 'url' => URL::to_action('blog@create'))
+                                                    )
+                                   ),
+                             '<form name="search" class="navbar-search pull-right" action="search">
+                             <input name="search" type="text" class="search-query span2" placeholder="Search">
+                             </form>',
+                             
+                             ),
+                       
+                       
+                       
+                       Navbar::FIX_TOP,
+                       true
+                       );
+
+
+?>
 	<!-- /nav-bar -->
 	
 	<!-- container -->

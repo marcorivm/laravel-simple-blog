@@ -40,6 +40,7 @@
 Route::any('/', 'blog@list');
 Route::any('(:num)', 'blog@view');
 Route::get('create', 'blog@create');
+Route::any('search', 'blog@search');
 Route::post('create', 'blog@save');
 
 /**

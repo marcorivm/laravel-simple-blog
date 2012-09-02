@@ -3,6 +3,7 @@
 class Base_Controller extends Controller {
 
 	protected $view_opts = array();
+    
 	
 	public function __construct() 
 	{
