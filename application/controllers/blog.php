@@ -42,8 +42,9 @@ class Blog_Controller extends Base_Controller  {
        $search = Input::get('search');
 		//$blog = Blog::find(1)->with('posts');
 		//$this->view_opts['blog'] = $blog;
-        $this->view_opts['blogs'] = Blog::all();
-		return View::make('blog.search', $this->view_opts)->with('search', $search);
+        $this->view_opts['posts'] = Post::with('blog')->where('title', 'like', '%'.$search.'%')->order_by('created_at', 'desc')->get();
+        $this->view_opts['search'] = $search;
+		return View::make('blog.search', $this->view_opts);
         
 
 	}
